@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -28,5 +29,9 @@ Route::get('/', [UserController::class, 'show']);
 //messages routes
 
 Route::get('/messages', [MessageController::class, 'show']);
+
+//games routes 
+
+Route::get('/games', [GameController::class, 'show']);
 
 
