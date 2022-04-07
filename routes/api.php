@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // users routes
 
-Route::get('/', [HomeController::class, 'show']);
+Route::get('/', [UserController::class, 'show']);
+
+//messages routes
+
+Route::get('/messages', [MessageController::class, 'show']);
 
 
