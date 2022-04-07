@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PartyController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,5 +34,9 @@ Route::get('/messages', [MessageController::class, 'show']);
 //games routes 
 
 Route::get('/games', [GameController::class, 'show']);
+
+//parties routes 
+
+Route::get('/parties', [PartyController::class, 'show']);
 
 
