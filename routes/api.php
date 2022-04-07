@@ -25,7 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // users routes
 
-Route::get('/', [UserController::class, 'show']);
+Route::get('/users', [UserController::class, 'show']);
+Route::post('/users/register', [UserController::class, 'register']);
 
 //messages routes
 
