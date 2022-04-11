@@ -11,8 +11,8 @@ class Party extends Model
 
     public $fillable = [
         'name',
-        'OwnerID',
-        'GameID'
+        'user_id',
+        'Game_id'
     ];
 
     public function games()

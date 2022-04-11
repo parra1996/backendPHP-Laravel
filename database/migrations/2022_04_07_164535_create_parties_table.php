@@ -16,16 +16,16 @@ class CreatePartiesTable extends Migration
         Schema::create('parties', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedInteger('userID');
-            $table->foreign('userID')
+            // $table->unsignedInteger('userID');
+            $table->foreign('user_id')
             ->references('id')
             ->on('users')
             ->unsigned()
             ->constrained('users')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->unsignedInteger('GameID');
-            $table->foreign('GameID')
+            // $table->unsignedInteger('GameID');
+            $table->foreign('Game_id')
             ->references('id')
             ->on('games')
             ->unsigned()

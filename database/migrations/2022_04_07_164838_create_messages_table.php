@@ -25,8 +25,8 @@ class CreateMessagesTable extends Migration
             ->constrained('users')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->unsignedInteger('PartyID');
-            $table->foreign('PartyID')
+            $table->unsignedInteger('party_id');
+            $table->foreign('party_id')
             ->references('id')
             ->on('parties')
             ->unsigned()

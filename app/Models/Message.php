@@ -14,7 +14,7 @@ class Message extends Model
         'message',
         'date',
         'fromUser',
-        'PartyID'
+        'party_id'
     ];
 
     public function players()
