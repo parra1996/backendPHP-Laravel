@@ -30,11 +30,11 @@ Route::post('/users/register', [UserController::class, 'register']);
 
 //messages routes
 
-Route::get('/messages', [MessageController::class, 'show']);
+Route::get('/messages', [MessageController::class, 'messagesAll']);
 
 //games routes 
 
-Route::get('/games', [GameController::class, 'show']);
+Route::get('/games', [GameController::class, 'gamesAll']);
 
 //parties routes 
 
