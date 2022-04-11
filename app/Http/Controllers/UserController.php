@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    // $userId = user()->id;
+
+
     public function show()
     {
         // return response()->json(['message' => 'Hello World!']);7
@@ -39,7 +42,9 @@ class UserController extends Controller
             // $token = JWTAuth::fromUser($user);
     
             return response()->json(compact('user'),201);
+
         } } catch (\Exception $e) {
+
             return response()->json(['error' => $e->getMessage()], 400);
         }
     }

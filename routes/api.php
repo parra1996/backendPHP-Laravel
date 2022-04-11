@@ -38,6 +38,6 @@ Route::get('/games', [GameController::class, 'show']);
 
 //parties routes 
 
-Route::get('/parties', [PartyController::class, 'show']);
+Route::get('/parties', [PartyController::class, 'All']);
 
 
