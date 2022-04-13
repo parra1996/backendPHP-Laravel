@@ -20,7 +20,7 @@ class Party extends Model
         return $this->belongsTo(Game::class);
     }
 
-    public function players()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }

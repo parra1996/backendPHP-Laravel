@@ -16,6 +16,15 @@ class User extends Model
         'role',
     ];
    
+    protected $hidden = [
+        'password',
+        // 'remember_token',
+    ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
 
     public function parties()
     {
@@ -31,5 +40,17 @@ class User extends Model
     {
         return $this->hasMany(Game::class);
     }
+
+    //  //JWT configuracion
+    //  public function getJWTIdentifier()
+    //  {
+    //      return $this->getKey();
+    //  }
+ 
+    //  public function getJWTCustomClaims()
+    //  {
+    //      return [];
+    //  }
+ 
 
 }
