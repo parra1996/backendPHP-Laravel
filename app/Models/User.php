@@ -18,7 +18,7 @@ class User extends Model
    
     protected $hidden = [
         'password',
-        // 'remember_token',
+        'remember_token',
     ];
 
     protected $casts = [
