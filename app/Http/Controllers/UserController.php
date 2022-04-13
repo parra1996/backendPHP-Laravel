@@ -95,8 +95,6 @@ public function updateUser(Request $request, $id)
     }
 }
 
-
-
 //Elimiar usuario
 public function deleteUser($id)
 {

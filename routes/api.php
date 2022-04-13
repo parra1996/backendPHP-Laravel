@@ -1,9 +1,13 @@
 <?php
 
+// use App\Http\Controllers\AuthController;
+
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PartyController;
 use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
@@ -19,12 +23,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
-//Endpoints de Login
-//Registrar usuario
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
 Route::post('/register', [AuthController::class, "userRegister"]);
 //L0guear usuario
-Route::post('/login', [AuthController::class, "userLogin"]);
+Route::post('/login', [AuthController::class, "login"]);
 //Logout
 Route::post('/logout', [AuthController::class, "userLogout"]);
 
@@ -58,7 +62,6 @@ Route::delete('/users/{id}', [UserController::class, 'deleteUser']);
 Route::group([
     'middleware' => 'jwt.auth'
 ], function () {
-//Endpoints de mensajes
 
 //leer todos los mensajes
 Route::get('/messages', [MessageController::class, 'allMessages']);
@@ -80,9 +83,7 @@ Route::post('/message/party/{id}', [MessageController::class, "messagesByPartyID
 Route::group([
     'middleware' => 'jwt.auth'
 ], function () {
-//Endpoints de Games
 
-//Listar juegos
 Route::get('/games', [GameController::class, "gamesAll"]);
 //Juego por id
 Route::post('/games', [GameController::class, "gamesAdd"]);
@@ -97,6 +98,22 @@ Route::delete('/games/{id}', [GameController::class, "deleteGame"]);
 
 //parties routes 
 
-Route::get('/parties', [PartyController::class, 'All']);
 
+Route::group([
+    'middleware' => 'jwt.auth'
+], function () {
+
+//Listar parties
+Route::get('/parties', [PartyController::class, "partiesAll"]);
+//Nueva party
+Route::post('/parties', [PartyController::class, "newParty"]);
+//Party por id de game
+Route::post('/parties/{id}', [PartyController::class, "partyBygame_id"]);
+//Actualizar party por id
+Route::post('/parties/{id}', [PartyController::class, "updateParty"]);
+//Modificar party
+Route::put('/parties/{id}', [PartyController::class, "deleteParty"]);
+//Borrar party
+Route::delete('/parties/game/{id}', [PartyController::class, "partiesBygame_id"]);
+});
 
