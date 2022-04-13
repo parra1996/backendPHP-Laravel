@@ -41,16 +41,16 @@ class User extends Model
         return $this->hasMany(Game::class);
     }
 
-    //  //JWT configuracion
-    //  public function getJWTIdentifier()
-    //  {
-    //      return $this->getKey();
-    //  }
+     //JWT configuracion
+     public function getJWTIdentifier()
+     {
+         return $this->getKey();
+     }
  
-    //  public function getJWTCustomClaims()
-    //  {
-    //      return [];
-    //  }
+     public function getJWTCustomClaims()
+     {
+         return [];
+     }
  
 
 }
