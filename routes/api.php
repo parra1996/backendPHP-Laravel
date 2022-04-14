@@ -108,11 +108,11 @@ Route::group([
     //Nueva party
     Route::post('/parties', [PartyController::class, "newParty"]);
     //Party por id de game
-    Route::post('/parties/{id}', [PartyController::class, "partyBygame_id"]);
+    Route::get('/parties/{id}', [PartyController::class, "partyBygame_id"]);
     //Actualizar party por id
-    Route::post('/parties/{id}', [PartyController::class, "updateParty"]);
+    Route::put('/parties/{id}', [PartyController::class, "updateParty"]);
     //Modificar party
-    Route::put('/parties/{id}', [PartyController::class, "deleteParty"]);
+    Route::delete('/parties/{id}', [PartyController::class, "deleteParty"]);
     //Borrar party
-    Route::delete('/parties/game/{id}', [PartyController::class, "partiesBygame_id"]);
+    Route::post('/parties/game/{id}', [PartyController::class, "partiesBygame_id"]);
 });

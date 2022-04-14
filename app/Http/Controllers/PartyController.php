@@ -36,8 +36,8 @@ public function newParty(Request $request)
     try {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'OwnerID' => 'required|string|max:255',
-            'Game_id' => 'required|string|max:255',
+            'user_id' => 'required|max:255',
+            'Game_id' => 'required|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -64,17 +64,20 @@ public function newParty(Request $request)
 //traer party por id
 public function partyBygame_id($id)
 {
-    Log::info('getPartyByID()');
+    Log::info('getParty()');
 
     try {
 
         $party = Party::find($id);
+
         Log::info('Tasks done');
+
         return response()->json($party, 200);
 
     } catch (\Exception $e) {
 
         Log::error($e->getMessage());
+
         return response()->json(['message' => 'Something went wrong'], 500);
     }
 }
@@ -84,31 +87,36 @@ public function updateParty(Request $request, $id)
 {
     Log::info('updateParty()');
 
-    try {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'OwnerID' => 'required|string|max:255',
-            'Game_id' => 'required|string|max:255',
-        ]);
+            try {
 
-        if ($validator->fails()) {
-            return response()->json(['message' => 'Validation failed'], 400);
-        }
+                $validator = Validator::make($request->all(), [
+                    'name' => 'required|max:255',
+                    'user_id' => 'required|max:255',
+                    'Game_id' => 'required|max:255',
+                ]);
 
-        $party = Party::find($id);
-        $party->name = $request->name;
-        $party->OwnerID = $request->OwnerID;
-        $party->Game_id = $request->Game_id;
-        $party->save();
+                if ($validator->fails()) {
+                    return response()->json(['message' => 'Validation failed'], 400);
+                }
 
-        Log::info('Tasks done');
-        return response()->json($party, 200);
+                $party = Party::find($id);
 
-    } catch (\Exception $e) {
+                $party->name = $request->name;
+                $party->user_id = $request->user_id;
+                $party->Game_id = $request->Game_id;
 
-        Log::error($e->getMessage());
-        return response()->json(['message' => 'Something went wrong'], 500);
-    }
+                $party->save();
+
+                Log::info('Tasks done');
+
+                return response()->json($party, 200);
+
+            } catch (\Exception $e) {
+
+                Log::error($e->getMessage());
+
+                return response()->json(['message' => 'Something went wrong'], 500);
+            }
 }
 
 //delete por id
@@ -119,7 +127,9 @@ public function deleteParty($id)
     try {
 
         $party = Party::find($id);
+
         $party->delete();
+
         Log::info('Tasks done');
 
         return response()->json(['message' => 'Party deleted'], 200);
@@ -127,6 +137,7 @@ public function deleteParty($id)
     } catch (\Exception $e) {
 
         Log::error($e->getMessage());
+
         return response()->json(['message' => 'Something went wrong'], 500);
     }
 }
@@ -134,33 +145,22 @@ public function deleteParty($id)
 //traer party por id de juego
 public function partiesBygame_id($id)
 {
-    Log::info('partiesBygame_id()');
+    Log::info('partiesByGameID()');
 
     try {
 
         $parties = Party::where('Game_id', $id)->get();
+
         Log::info('Tasks done');
+
         return response()->json($parties, 200);
 
     } catch (\Exception $e) {
 
         Log::error($e->getMessage());
+
         return response()->json(['message' => 'Something went wrong'], 500);
     }
 }
-    // public function All(){
-    //     try {
-
-    //         $parties = Party::all();
-    //         return $parties;
-
-    //     } catch (QueryException $error) {
-
-    //         $codigoError = $error->errorInfo[1];
-    //         if($codigoError){
-    //             return "Error $codigoError";
-    //         }
-
-    //     }
-    // }
+    
 }
