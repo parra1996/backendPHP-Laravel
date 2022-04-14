@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-
     public function allUsers()
 {
     Log::info('allUsers()');
@@ -27,7 +26,6 @@ class UserController extends Controller
     }
 }
 
-//Leer usuario por id
 public function userByID($id)
 {
     Log::info('userByID()');
@@ -45,18 +43,16 @@ public function userByID($id)
     }
 }
 
-
-//Leer usuario por nombre
 public function userByName($name)
 {
     Log::info('userByName()');
 
     try {
 
-        $user = User::find($name);
+        $user1 = User::find($name);
         Log::info('Tasks done');
         
-        return response()->json($user,200);
+        return response()->json($user1,200);
 
     } catch (\Exception $e) {
 
@@ -65,7 +61,6 @@ public function userByName($name)
     }
 }
 
-//Actualizar usuario
 public function updateUser(Request $request, $id)
 {
     Log::info('updateUser()');
@@ -96,7 +91,6 @@ public function updateUser(Request $request, $id)
     }
 }
 
-//Elimiar usuario
 public function deleteUser($id)
 {
     Log::info('deleteUser()');
@@ -115,44 +109,4 @@ public function deleteUser($id)
         return response()->json(['message' => 'Something went wrong'], 500);
     }
 }
-    // $userId = user()->id;
-
-
-    // public function show()
-    // {
-    //     // return response()->json(['message' => 'Hello World!']);7
-
-    //     return "hello world";
-    // }
-
-    // public function register(Request $request)
-    // {
-        
-    //     try {
-    //     {
-    //         $validator = Validator::make($request->all(), [
-    //             'name' => 'required|string|max:255',
-    //             'email' => 'required|string|email|max:255|unique:users',
-    //             'password' => 'required|string|min:6',
-    //         ]);
-    
-    //         if($validator->fails()){
-    //             return response()->json($validator->errors()->toJson(),400);
-    //         }
-    
-    //         $user = User::create([
-    //             'name' => $request->get('name'),
-    //             'email' => $request->get('email'),
-    //             'password' => bcrypt($request->password)
-    //         ]);
-    
-    //         // $token = JWTAuth::fromUser($user);
-    
-    //         return response()->json(compact('user'),201);
-
-    //     } } catch (\Exception $e) {
-
-    //         return response()->json(['error' => $e->getMessage()], 400);
-    //     }
-    // }
 }

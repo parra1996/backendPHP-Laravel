@@ -65,8 +65,6 @@ class MessageController extends Controller
         }
     }
     
-    
-    //Leer mensajes por id
     public function messageByID($id)
     {
         Log::info('messageByID()');
@@ -84,9 +82,6 @@ class MessageController extends Controller
         }
     }
     
-    
-    
-    //Modificar mensaje por id
     public function updateMessage(Request $request, $id)
     {
         Log::info('updateMessage()');
@@ -120,9 +115,6 @@ class MessageController extends Controller
         }
     }
     
-    
-    
-    //eliminar mensaje por id
     public function deleteMessage($id)
     {
         Log::info('deleteMessage()');
@@ -141,10 +133,6 @@ class MessageController extends Controller
         }
     }
     
-    
-    
-    
-    // Leer mensajes por id de party
     public function messagesByPartyID($id)
     {
         Log::info('messagesByPartyID()');
@@ -161,22 +149,4 @@ class MessageController extends Controller
             return response()->json(['message' => 'Something went wrong'], 500);
         }
     }
-
-
-
-    // public function messagesAll(){
-    //     try {
-
-    //         $messages = Message::all();
-    //         return $messages;
-
-    //     } catch (QueryException $error) {
-
-    //         $codigoError = $error->errorInfo[1];
-    //         if($codigoError){
-    //             return "Error $codigoError";
-    //         }
-
-    //     }
-    // } 
 }

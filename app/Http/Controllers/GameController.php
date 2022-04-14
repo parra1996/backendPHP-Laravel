@@ -25,8 +25,6 @@ class GameController extends Controller
         }
     }
     
-    
-    //Crear juego
     public function gamesAdd(Request $request)
     {
         Log::info('gamesAdd()');
@@ -57,8 +55,6 @@ class GameController extends Controller
         }
     }
     
-    
-    //Leer un juego por id
     public function gameByID($id)
     {
         Log::info('gameByID()');
@@ -78,7 +74,6 @@ class GameController extends Controller
         }
     }
     
-    //Modificar juego
     public function updateGame($id, Request $request)
     {
         Log::info('updateGame()');
@@ -109,7 +104,6 @@ class GameController extends Controller
         }
     }
     
-    //Borrar juego por id
     public function deleteGame($id)
     {
         Log::info('deleteGame()');
@@ -129,22 +123,4 @@ class GameController extends Controller
             return response()->json(['message' => 'Something went wrong'], 500);
         }
     }
-
-
-    
-    // public function gamesAll(){
-    //     try {
-
-    //         $games = Game::all();
-    //         return $games;
-
-    //     } catch (QueryException $error) {
-
-    //         $codigoError = $error->errorInfo[1];
-    //         if($codigoError){
-    //             return "Error $codigoError";
-    //         }
-
-    //     }
-    // }
 }

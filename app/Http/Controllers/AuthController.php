@@ -32,7 +32,6 @@ class AuthController extends Controller
 
         return response()->json(compact('user', 'token'), 201);
     }
-    //Login usuario
 
     public function login(Request $request)
     {
@@ -68,14 +67,12 @@ class AuthController extends Controller
         // ]);
     }
 
-    //Leer perfil
     public function profile()
     {
         return response()->json(auth()->user());;
     }
 
 
-    //Logout
     public function Logout(Request $request)
     {
         $this->validate($request, [

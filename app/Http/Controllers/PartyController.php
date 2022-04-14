@@ -28,7 +28,6 @@ class PartyController extends Controller
     }
 }
 
-//Nueva party
 public function newParty(Request $request)
 {
     Log::info('newParty()');
@@ -60,8 +59,6 @@ public function newParty(Request $request)
     }
 }
 
-
-//traer party por id
 public function partyBygame_id($id)
 {
     Log::info('getParty()');
@@ -82,7 +79,6 @@ public function partyBygame_id($id)
     }
 }
 
-//Actualizar por id
 public function updateParty(Request $request, $id)
 {
     Log::info('updateParty()');
@@ -119,7 +115,6 @@ public function updateParty(Request $request, $id)
             }
 }
 
-//delete por id
 public function deleteParty($id)
 {
     Log::info('deleteParty()');
@@ -142,7 +137,6 @@ public function deleteParty($id)
     }
 }
 
-//traer party por id de juego
 public function partiesBygame_id($id)
 {
     Log::info('partiesByGameID()');
