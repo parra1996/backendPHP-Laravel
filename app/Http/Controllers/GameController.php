@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class GameController extends Controller
 {
 
-    public function gamesAll(){
+    public function All(){
         Log::info('gamesAll()');
             
         try {
@@ -27,9 +27,9 @@ class GameController extends Controller
     
     
     //Crear juego
-    public function gameAdd(Request $request)
+    public function gamesAdd(Request $request)
     {
-        Log::info('gameAdd()');
+        Log::info('gamesAdd()');
         try {
     
             $validator = Validator::make($request->all(), [
@@ -77,11 +77,6 @@ class GameController extends Controller
             return response()->json(['message' => 'Something went wrong'], 500);
         }
     }
-    
-    
-    
-    
-    
     
     //Modificar juego
     public function updateGame($id, Request $request)

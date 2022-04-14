@@ -84,7 +84,7 @@ Route::group([
     'middleware' => 'jwt.auth'
 ], function () {
 
-    Route::get('/games', [GameController::class, "gamesAll"]);
+    Route::get('/games', [GameController::class, "All"]);
     //Juego por id
     Route::post('/games', [GameController::class, "gamesAdd"]);
     //Nuevo juego
