@@ -13,7 +13,7 @@ class Message extends Model
     public $fillable = [
         'message',
         'date',
-        'fromUser',
+        'fromPlayer',
         'party_id'
     ];
 

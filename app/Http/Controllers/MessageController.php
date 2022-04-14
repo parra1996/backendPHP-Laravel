@@ -11,6 +11,26 @@ use Illuminate\Support\Facades\Validator;
 class MessageController extends Controller
 {
 
+    public function allMessages()
+    {
+        Log::info('allMessages()');
+
+        try {
+
+            $messages = Message::all();
+
+            Log::info('Tasks done');
+
+            return response()->json($messages, 200);
+
+        } catch (\Exception $e) {
+
+            Log::error($e->getMessage());
+
+            return response()->json(['message' => 'Something went wrong'], 500);
+        }
+    }
+
     function newMessage(Request $request)
     {
         Log::info('newMessage()');
@@ -18,9 +38,9 @@ class MessageController extends Controller
         try {
     
             $validator = Validator::make($request->all(), [
-                'title' => 'required|string|max:255',
-                'content' => 'required|string|max:255',
-                'user_id' => 'required|integer',
+                'message' => 'required|string|max:255',
+                'date' => 'required|string|max:15',
+                'fromPlayer' => 'required|integer',
                 'party_id' => 'required|integer',
             ]);
     
@@ -29,9 +49,9 @@ class MessageController extends Controller
             }
     
             $message = Message::create([
-                'title' => $request->title,
-                'content' => $request->content,
-                'user_id' => $request->user_id,
+                'message' => $request->message,
+                'date' => $request->date,
+                'fromPlayer' => $request->fromPlayer,
                 'party_id' => $request->party_id,
             ]);
     
@@ -73,9 +93,9 @@ class MessageController extends Controller
         try {
     
             $validator = Validator::make($request->all(), [
-                'title' => 'required|string|max:255',
-                'content' => 'required|string|max:255',
-                'user_id' => 'required|integer',
+                'message' => 'required|string|max:255',
+                'date' => 'required|string|max:15',
+                'fromPlayer' => 'required|integer',
                 'party_id' => 'required|integer',
             ]);
     
@@ -84,9 +104,9 @@ class MessageController extends Controller
             }
     
             $message = Message::find($id);
-            $message->title = $request->title;
-            $message->content = $request->content;
-            $message->user_id = $request->user_id;
+            $message->message = $request->message;
+            $message->date = $request->date;
+            $message->fromPlayer = $request->fromPlayer;
             $message->party_id = $request->party_id;
             $message->save();
     
@@ -112,7 +132,7 @@ class MessageController extends Controller
             $message = Message::find($id);
             $message->delete();
             Log::info('Tasks done');
-            return response()->json($message, 200);
+            return response()->json("el mensaje de $ ha sido eliminado", 200);
     
         } catch (\Exception $e) {
     
