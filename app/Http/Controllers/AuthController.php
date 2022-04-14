@@ -76,7 +76,7 @@ class AuthController extends Controller
 
 
     //Logout
-    public function userLogout(Request $request)
+    public function Logout(Request $request)
     {
         $this->validate($request, [
             'token' => 'required'

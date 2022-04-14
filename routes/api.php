@@ -30,13 +30,14 @@ Route::post('/register', [AuthController::class, "userRegister"]);
 //L0guear usuario
 Route::post('/login', [AuthController::class, "login"]);
 //Logout
+Route::post('/logout', [AuthController::class, "Logout"]);
+
 
 Route::group([
     'middleware' => 'jwt.auth'
 ], function () {
     //Endpoints de usuarios
 
-    Route::post('/logout', [AuthController::class, "userLogout"]);
     //Leer perfil //lo meto aqui proque necesita jwt
     Route::get('/profile', [AuthController::class, 'profile']);
     //Leer todos los usuario

@@ -55,7 +55,8 @@ public function userByName($name)
 
         $user = User::find($name);
         Log::info('Tasks done');
-        return response()->json($user, 200);
+        
+        return response()->json($user,200);
 
     } catch (\Exception $e) {
 
