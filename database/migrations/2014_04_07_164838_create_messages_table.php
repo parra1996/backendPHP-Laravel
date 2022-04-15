@@ -19,20 +19,20 @@ class CreateMessagesTable extends Migration
             $table->string('date', 100);
             $table->unsignedInteger('fromPlayer');
             $table->foreign('fromPlayer')
-            ->references('id')
-            ->on('users')
-            ->unsigned()
-            ->constrained('users')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('users')
+                ->unsigned()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->unsignedInteger('party_id');
             $table->foreign('party_id')
-            ->references('id')
-            ->on('parties')
-            ->unsigned()
-            ->constrained('parties')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('parties')
+                ->unsigned()
+                ->constrained('parties')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
