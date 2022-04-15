@@ -17,12 +17,13 @@ Route::post('/register', [AuthController::class, "userRegister"]);
 
 Route::post('/login', [AuthController::class, "login"]);
 
-Route::post('/logout', [AuthController::class, "Logout"]);
+
 
 
 Route::group([
     'middleware' => 'jwt.auth'
 ], function () {
+    Route::post('/logout', [AuthController::class, "logout"]);
 
     Route::get('/profile', [AuthController::class, 'profile']);
 
