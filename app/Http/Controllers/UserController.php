@@ -43,24 +43,6 @@ public function userByID($id)
     }
 }
 
-public function userByName($name)
-{
-    Log::info('userByName()');
-
-    try {
-
-        $user1 = User::find($name);
-        Log::info('Tasks done');
-        
-        return response()->json($user1,200);
-
-    } catch (\Exception $e) {
-
-        Log::error($e->getMessage());
-        return response()->json(['message' => 'Something went wrong'], 500);
-    }
-}
-
 public function updateUser(Request $request, $id)
 {
     Log::info('updateUser()');
