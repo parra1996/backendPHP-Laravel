@@ -2,6 +2,13 @@
 
 # Proyecto Laravel_PHP
 
+## En que consiste el proyecto:
+
+Consiste en una red social llamada "Discorts" en el que diferentes usuarios podran interactuar entre ellos de manera que podran crear reuniones, llamadas "party" donde podran tratar temas especificos, enviarse mensajes, discutir sobre los videojuegos que posee la plataforma, entre otras cosas.
+
+## Diagrama de relaciones entre las tsablas de la base de datos.
+
+<img src="img/relaciones2.png" width="700" height="600" >
 
 
 ## Instrucciones 
@@ -29,11 +36,12 @@
 
 ### Parties.
 
-<img src="img/parties.png" widht="700" height="600">
+<img src="img/parties.png" width="700" height="600">
 
-### messages.
+### Messages.
 
 <img src="img/mensajes.png" width="700" height="600" >
+
 
 
 <p align="right">(<a href="#top">Volver al inicio</a>)</p>
