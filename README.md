@@ -26,7 +26,7 @@ Consiste en una red social llamada "Discorts" en el que diferentes usuarios podr
 
 ## Endpoints.
 
-### http://localhost:8000/api/users
+### http://localhost:8000/api/
 
 ### users.
 
