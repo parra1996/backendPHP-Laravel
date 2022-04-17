@@ -26,7 +26,7 @@ Consiste en una red social llamada "Discorts" en el que diferentes usuarios podr
 
 ## Endpoints.
 
-### localhost:8000/api/users
+### http://localhost:8000/api/users
 
 ### users.
 
@@ -34,19 +34,19 @@ Consiste en una red social llamada "Discorts" en el que diferentes usuarios podr
  
 ### Games.
 
-### localhost:8000/api/games
+###  http://localhost:8000/api/games
 
 <img src="img/games.png" width="700" height="600" >
 
 ### Parties.
 
-### localhost:8000/api/parties
+###  http://localhost:8000/api/parties
 
 <img src="img/parties.png" width="700" height="600">
 
 ### Messages.
 
-### localhost:8000/api/messages
+### http://localhost:8000/api/messages
 
 <img src="img/mensajes.png" width="700" height="600" >
 
