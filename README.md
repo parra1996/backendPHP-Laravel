@@ -28,6 +28,9 @@ Consiste en una red social llamada "Discorts" en el que diferentes usuarios podr
 
 <img src="img/php.jpg" width="200" height="100"> <img src="img/Bcrypt.png" width="200" height="100"> <img src="img/composer-php.png" width="300" height="100" > <img src="img/jwt2.png" width="200" height="100" > <img src="img/logo_laravel.png" width="200" height="100" > <img src="img/1024px-MySQL.ff87215b43fd7292af172e2a5d9b844217262571.png" width="200" height="100" >
 
+## Postman 
+[![Probar en Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/20510883/Uyr5pzLh)
+
 ## Endpoints.
 
 ### http://localhost:8000/api/ en local
